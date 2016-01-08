@@ -1,4 +1,5 @@
 class Teacher < ActiveRecord::Base
+  has_many :bills
 
   def self.create_with_omniauth(auth)
     create! do |user|
