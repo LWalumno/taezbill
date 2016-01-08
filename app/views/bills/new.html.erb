@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 padded text-center">
+      <h1>Build your bill</h1>
+      <h3>in only 3 steps</h3>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
+      <h4>Step 1: Bill infos</h4>
+      <%= simple_form_for @bill do |f| %>
+        <%= f.input :name %>
+        <%= f.input :date %>
+        <%= f.input :number %>
+        <div class="text-right">
+          <%= f.submit 'next >' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1"></div>
+  </div>
+</div>
