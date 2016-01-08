@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'omniauth-github'
 gem 'simple_form'
 
 group :development, :test do
