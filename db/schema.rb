@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108144923) do
+ActiveRecord::Schema.define(version: 20160108161710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,32 @@ ActiveRecord::Schema.define(version: 20160108144923) do
 
   add_index "bills", ["teacher_id"], name: "index_bills_on_teacher_id", using: :btree
 
+  create_table "fields", force: :cascade do |t|
+    t.string   "name"
+    t.string   "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_fields", force: :cascade do |t|
+    t.string   "data"
+    t.integer  "item_id"
+    t.integer  "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "item_fields", ["field_id"], name: "index_item_fields_on_field_id", using: :btree
+  add_index "item_fields", ["item_id"], name: "index_item_fields_on_item_id", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "bill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "items", ["bill_id"], name: "index_items_on_bill_id", using: :btree
+
   create_table "teachers", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -41,4 +67,7 @@ ActiveRecord::Schema.define(version: 20160108144923) do
   end
 
   add_foreign_key "bills", "teachers"
+  add_foreign_key "item_fields", "fields"
+  add_foreign_key "item_fields", "items"
+  add_foreign_key "items", "bills"
 end
