@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <% @bills.each do |bill| %>
+        <div class="row">
+          <div class="col-xs-8">
+            <%= bill.name %>
+          </div>
+          <div class="col-xs-4">
+            <ul class="list-unstyled list-inline">
+              <li>
+                <%= link_to bill_path(bill) do %>
+                  <i class="fa fa-eye"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to edit_bill_path(bill) do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to bill_path(bill), method: :delete do %>
+                  <i class="fa fa-times"></i>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ class BillsController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
+    @bill.teacher = current_teacher
     if @bill.save
       redirect_to bill_path(@bill)
     else
@@ -22,6 +23,10 @@ class BillsController < ApplicationController
 
   def show
     @bill = Bill.find(params[:id])
+  end
+
+  def index
+    @bills = current_teacher.bills
   end
 
   private
