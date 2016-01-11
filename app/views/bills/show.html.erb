@@ -1,7 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 padded">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 padded">
       <h3>Bill #<%= @bill.number %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 padded">
+      <div id="bill_grid">
+        <% @bill.fields.order(:id).each do |field| %>
+          <div class="bill_col">
+            <div class="bill_headers">
+              <%= field.title %><%= " (#{field.unit})" if field.unit %>
+            </div>
+            <% @items.each do |item| %>
+              <div><%= item.item_fields.where(field_id: field.id).first.data %></div>
+            <% end %>
+            <% if field.name == "price" %>
+              <div>Total : <%= @total_price %> €</div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
