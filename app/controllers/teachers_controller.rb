@@ -21,6 +21,8 @@ class TeachersController < ApplicationController
       :last_name,
       :company_name,
       :company_status,
-      :siret)
+      :siret,
+      :phone_number,
+      :lewagon_name)
   end
 end
