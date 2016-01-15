@@ -8,7 +8,11 @@
         <%= f.input :company_name %>
         <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
         <%= f.input :siret %>
-        <%= f.submit "GO", class: "btn btn-xs btn-success" %>
+        <%= f.input :phone_number %>
+        <%= f.input :lewagon_name, placeholder: "refers to this batch planning, e.g. \"tchret\"" %>
+        <div class="text-right">
+          <%= f.submit "GO", class: "btn btn-xs btn-success" %>
+        </div>
       <% end %>
     </div>
   </div>
