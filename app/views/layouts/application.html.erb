@@ -10,6 +10,9 @@
 </head>
 <body>
 <%= render 'shared/notices' %>
+<% unless params[:id] == "sign_in" %>
+  <%= render "shared/menu" %>
+<% end %>
 
 <%= yield %>
 

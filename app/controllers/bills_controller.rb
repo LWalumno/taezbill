@@ -45,6 +45,14 @@ class BillsController < ApplicationController
     @bills = current_teacher.bills
   end
 
+  def destroy
+    if Bill.find(params[:id]).destroy
+      redirect_to bills_path, notice: "Bill deleted!"
+    else
+      redirect_to bills_path, alert: "Sorry, something went wrong :/"
+    end
+  end
+
   private
 
   def bill_params

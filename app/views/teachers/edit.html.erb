@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+      <h3>Complete your profile</h3>
+      <%= simple_form_for current_teacher do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :company_name %>
+        <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
+        <%= f.input :siret %>
+        <%= f.submit "GO", class: "btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
