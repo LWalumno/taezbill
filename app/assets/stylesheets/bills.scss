@@ -5,3 +5,10 @@
 .bill_col {
   flex-grow: 1;
 }
+
+.bill_data {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-left: 1px solid $gray-light;
+  border-right: 1px solid $gray-light;
+}

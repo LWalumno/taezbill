@@ -18,7 +18,7 @@ class BillsController < ApplicationController
       qty = params[:working_days]
       dp = params[:daily_price]
       item_field_attributes = {
-        description: "Mission TA journée blablablablablabla",
+        description: "Mission TA journée",
         quantity: qty,
         daily_price: dp,
         price: (qty.to_i * dp.to_i).to_s
