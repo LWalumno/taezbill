@@ -28,7 +28,7 @@ gem 'figaro'
 gem 'font-awesome-sass'
 gem 'high_voltage', '~> 2.4.0'
 gem 'omniauth-github'
-gem 'simple_form'
+gem 'simple_form', '~> 3.2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

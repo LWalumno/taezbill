@@ -1,3 +1,14 @@
-// Place all the styles related to the bills controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#bill_grid {
+  display: flex;
+}
+
+.bill_col {
+  flex-grow: 1;
+}
+
+.bill_data {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-left: 1px solid $gray-light;
+  border-right: 1px solid $gray-light;
+}
