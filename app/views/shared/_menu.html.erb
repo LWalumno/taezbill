@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 text-right">
+      <ul class="list-inline">
+        <li>
+          <%= link_to edit_teacher_path(current_teacher) do %>
+            <i class="fa fa-user"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to bills_path do %>
+            <i class="fa fa-list"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to sign_out_path do %>
+            <i class="fa fa-sign-out"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
