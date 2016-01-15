@@ -5,9 +5,25 @@
  * ------------------------------------- */
 
 // Paddings
-.padded {
+.padded-5em {
   padding-top: 5em;
   padding-bottom: 5em;
+}
+.padded-3em {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+.padded-1em {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+// Font-style
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
 }
 
 // Backgrounds
