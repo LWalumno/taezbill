@@ -2,16 +2,21 @@
   <div class="row">
     <div class="col-sm-4">
       <p><%= current_teacher.company_name %></p>
-      <p><%#= current_teacher.address %></p>
+      <p><%= street(current_teacher.company_address) %></p>
+      <p><%= city(current_teacher.company_address) %></p>
       <p><%= current_teacher.phone_number %></p>
       <p>SIRET : <%= current_teacher.siret %></p>
     </div>
     <div class="col-sm-4 col-sm-offset-4">
       <h3>Bill #<%= @bill.number %></h3>
-      <div id="customer_infos">
-        <p></p>
-        <p></p>
-        <p></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <div class="padded-1em" id="customer_infos">
+        <p><%= @customer.company_name %></p>
+        <p><%= street(@customer.address) %></p>
+        <p><%= city(@customer.address) %></p>
       </div>
     </div>
   </div>
@@ -36,8 +41,11 @@
           </div>
         <% end %>
       </div>
-      <div class="padded-5em text-right">
+      <div class="padded-3em text-right">
         <span class="bold italic">Total TTC :&emsp;&emsp;</span><span class="bold"><%= @total_price %> €</span>
+      </div>
+      <div class="padded-1em">
+        T.V.A. non applicable ou exonérée, article 293 B du CGI.
       </div>
     </div>
   </div>

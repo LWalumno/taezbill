@@ -5,6 +5,7 @@
       <%= simple_form_for current_teacher do |f| %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
+        <%= f.input :company_address %>
         <%= f.input :company_name %>
         <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
         <%= f.input :siret %>

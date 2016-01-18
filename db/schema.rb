@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115230254) do
+ActiveRecord::Schema.define(version: 20160118120142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,22 @@ ActiveRecord::Schema.define(version: 20160115230254) do
     t.string   "name"
     t.string   "date"
     t.integer  "teacher_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "number"
+    t.integer  "customer_id"
   end
 
+  add_index "bills", ["customer_id"], name: "index_bills_on_customer_id", using: :btree
   add_index "bills", ["teacher_id"], name: "index_bills_on_teacher_id", using: :btree
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "company_name"
+    t.string   "address"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "fields", force: :cascade do |t|
     t.string   "name"
@@ -63,14 +73,16 @@ ActiveRecord::Schema.define(version: 20160115230254) do
     t.string   "company_name"
     t.string   "company_status"
     t.string   "siret"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.boolean  "assistant",      default: true
-    t.boolean  "professor",      default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "assistant",       default: true
+    t.boolean  "professor",       default: false
     t.string   "phone_number"
     t.string   "lewagon_name"
+    t.string   "company_address"
   end
 
+  add_foreign_key "bills", "customers"
   add_foreign_key "bills", "teachers"
   add_foreign_key "item_fields", "fields"
   add_foreign_key "item_fields", "items"

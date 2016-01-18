@@ -22,3 +22,9 @@ fields_attributes = [
 fields_attributes.each do |attr|
   Field.create!(attr)
 end
+
+Customer.destroy_all
+lewagon = Customer.create!(
+  name: "Le Wagon",
+  company_name: "Lewagon",
+  address: "24 rue Louis Blanc, 75010, Paris")
