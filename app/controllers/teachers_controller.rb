@@ -20,6 +20,7 @@ class TeachersController < ApplicationController
       :first_name,
       :last_name,
       :company_name,
+      :company_address,
       :company_status,
       :siret,
       :phone_number,
