@@ -14,6 +14,7 @@ class BillsController < ApplicationController
   def create
     @bill = Bill.new(bill_params)
     @bill.teacher = current_teacher
+    @bill.customer = Customer.find_by_name("Le Wagon")
     if @bill.save
       qty = params[:working_days]
       dp = params[:daily_price]
@@ -36,6 +37,7 @@ class BillsController < ApplicationController
 
   def show
     @bill = Bill.find(params[:id])
+    @customer = @bill.customer
     @items = @bill.items
     item_prices = @bill.item_fields.where(field_id: Field.find_by_name("price").id)
     @total_price = item_prices.reduce(0) { |sum, item_price| sum += item_price.data.to_i }

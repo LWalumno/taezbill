@@ -8,10 +8,14 @@
     </div>
     <div class="col-sm-4 col-sm-offset-4">
       <h3>Bill #<%= @bill.number %></h3>
-      <div id="customer_infos">
-        <p></p>
-        <p></p>
-        <p></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <div class="padded-3em" id="customer_infos">
+        <p><%= @customer.company_name %></p>
+        <p><%= @customer.street %></p>
+        <p><%= @customer.city %></p>
       </div>
     </div>
   </div>
