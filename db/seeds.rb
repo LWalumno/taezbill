@@ -3,19 +3,23 @@ Field.destroy_all
 fields_attributes = [
   {
     name: "Description",
-    unit: nil
+    unit: nil,
+    title: "description"
   },
   {
     name: "Daily price",
-    unit: "€"
+    unit: "€",
+    title: "daily_price"
   },
   {
     name: "Quantity",
-    unit: nil
+    unit: nil,
+    title: "quantity"
   },
   {
     name: "Price",
-    unit: "€"
+    unit: "€",
+    title: "price"
   }
 ]
 
