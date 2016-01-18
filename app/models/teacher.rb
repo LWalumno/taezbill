@@ -3,7 +3,7 @@ class Teacher < ActiveRecord::Base
 
   COMPANY_STATUS = ["AE", "SAS", "SARL", "EI"]
 
-  validates :company_status, inclusion: { in: COMPANY_STATUS }
+  validates :company_status, inclusion: { in: COMPANY_STATUS }, allow_blank: true
 
   def self.create_with_omniauth(auth)
     create! do |user|
