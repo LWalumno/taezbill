@@ -45,8 +45,7 @@ class BillsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "#{@bill.name}",
-               :layout => "pdf"
+        render :pdf => "#{@bill.name}"
       end
     end
   end
