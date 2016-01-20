@@ -3,7 +3,11 @@ class Teacher < ActiveRecord::Base
 
   COMPANY_STATUS = ["AE", "SAS", "SARL", "EI"]
 
-  validates :company_status, inclusion: { in: COMPANY_STATUS }, allow_blank: true
+  validates :company_status, inclusion: { in: COMPANY_STATUS }, allow_nil: true, allow_blank: true
+  validates :siret, format: { with: /\A\d{14}\z/,
+    message: "SIRET is 14 numbers long" }, allow_nil: true
+  validates :company_name, presence: true, allow_nil: true
+  validates :company_address, presence: true, allow_nil: true
 
   def self.create_with_omniauth(auth)
     create! do |user|

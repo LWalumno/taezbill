@@ -27,7 +27,7 @@ class BillsController < ApplicationController
       }
       item = @bill.items.create!
       Field.find_each do |field|
-        data = item_field_attributes[field.name.to_sym]
+        data = item_field_attributes[field.title.to_sym]
         item.item_fields.create!(field_id: field.id, data: data)
       end
       redirect_to bill_path(@bill)
