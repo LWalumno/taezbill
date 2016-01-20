@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
   before_action :authenticate_teacher
+  before_action :check_teacher_profile, only: [:show]
 
   def new
     date = Date.today
@@ -59,5 +60,11 @@ class BillsController < ApplicationController
 
   def bill_params
     params.require(:bill).permit(:name, :number, :date)
+  end
+
+  def check_teacher_profile
+    if current_teacher.miss_profile?
+      redirect_to edit_teacher_path(current_teacher), alert: "Complete your profile then see your bills..."
+    end
   end
 end

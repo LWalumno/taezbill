@@ -12,4 +12,8 @@ class Teacher < ActiveRecord::Base
       user.name = auth["info"]["name"]
     end
   end
+
+  def miss_profile?
+    company_name.nil? || siret.nil? || company_address.nil?
+  end
 end

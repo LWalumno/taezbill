@@ -5,12 +5,14 @@
       <%= simple_form_for current_teacher do |f| %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%= f.input :company_address %>
-        <%= f.input :company_name %>
+        <%= f.input :company_name, required: true %>
+        <%= f.input :company_address, required: true %>
         <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
-        <%= f.input :siret %>
+        <%= f.input :siret, required: true %>
         <%= f.input :phone_number %>
         <%= f.input :lewagon_name, placeholder: "refers to this batch planning, e.g. \"tchret\"" %>
+        <%= f.input :assistant %>
+        <%= f.input :professor %>
         <div class="text-right">
           <%= f.submit "GO", class: "btn btn-xs btn-success" %>
         </div>

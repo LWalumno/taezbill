@@ -7,4 +7,5 @@ class Bill < ActiveRecord::Base
 
   validates :name, presence: true
   validates :date, presence: true
+  validates :number, presence: true
 end
