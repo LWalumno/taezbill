@@ -19,7 +19,7 @@
       <p>SIRET : <%= current_teacher.siret %></p>
     </div>
     <div class="col-xs-4 col-xs-offset-4">
-      <h3>Bill #<%= @bill.number %></h3>
+      <h4>Bill #<%= @bill.number %></h3>
     </div>
   </div>
   <div class="row">
@@ -33,11 +33,11 @@
   </div>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <h4><span class="bold">Purpose :</span> <%= @bill.name %></h3>
+      <h5><span class="bold">Purpose :</span> <%= @bill.name %></h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 padded-1em">
+    <div class="col-xs-10 col-xs-offset-1 padded-1em">
       <div id="bill_grid">
         <% @bill.fields.order(:id).each do |field| %>
           <div class="bill_col">

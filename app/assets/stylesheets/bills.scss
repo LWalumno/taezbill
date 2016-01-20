@@ -1,9 +1,16 @@
 #bill_grid {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
 }
 
 .bill_col {
   flex-grow: 1;
+}
+
+.bill_headers {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .bill_data {
