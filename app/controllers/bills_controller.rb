@@ -42,6 +42,20 @@ class BillsController < ApplicationController
     @items = @bill.items
     item_prices = @bill.item_fields.where(field_id: Field.find_by_title("price").id)
     @total_price = item_prices.reduce(0) { |sum, item_price| sum += item_price.data.to_i }
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @example_text = "Hello world"
+        render :pdf => "my new bill",
+               :layout => "pdf",
+               :footer => {
+                  :center => "Center",
+                  :left => "Left",
+                  :right => "Right"
+               }
+        # render pdf: "#{@bill.name}"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def index
