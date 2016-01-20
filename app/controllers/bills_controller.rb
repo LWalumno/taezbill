@@ -45,15 +45,8 @@ class BillsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        @example_text = "Hello world"
-        render :pdf => "my new bill",
-               :layout => "pdf",
-               :footer => {
-                  :center => "Center",
-                  :left => "Left",
-                  :right => "Right"
-               }
-        # render pdf: "#{@bill.name}"   # Excluding ".pdf" extension.
+        render :pdf => "#{@bill.name}",
+               :layout => "pdf"
       end
     end
   end

@@ -1,6 +1,8 @@
 <% content_for :title, @bill.name %>
+<meta charset='utf-8' />
+<%= wicked_pdf_stylesheet_link_tag "application" %>
 
-<div class="container padded-3em">
+<div class="container padded-3em" id="pdf_container" >
   <div class="row">
     <div class="col-sm-4">
       <p><%= current_teacher.company_name %></p>
@@ -53,3 +55,4 @@
   </div>
 </div>
 
+<%= wicked_pdf_javascript_include_tag 'application' %>
