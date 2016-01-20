@@ -1,4 +1,6 @@
 #bill_grid {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
 }
 
@@ -6,9 +8,19 @@
   flex-grow: 1;
 }
 
+.bill_headers {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 .bill_data {
   padding-left: 1em;
   padding-right: 1em;
   border-left: 1px solid $gray-light;
   border-right: 1px solid $gray-light;
+}
+
+#pdf_body {
+  background-color: white;
+  color: black;
 }

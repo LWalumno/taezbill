@@ -21,6 +21,11 @@
                   <i class="fa fa-eye"></i>
                 <% end %>
               </li>
+              <li>
+                <%= link_to bill_path(bill, format: "pdf") do %>
+                  <i class="fa fa-file-pdf-o"></i>
+                <% end %>
+              </li>
 <!--               <li>
                 <%= link_to edit_bill_path(bill) do %>
                   <i class="fa fa-pencil"></i>

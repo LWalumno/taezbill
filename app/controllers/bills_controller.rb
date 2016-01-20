@@ -42,6 +42,12 @@ class BillsController < ApplicationController
     @items = @bill.items
     item_prices = @bill.item_fields.where(field_id: Field.find_by_title("price").id)
     @total_price = item_prices.reduce(0) { |sum, item_price| sum += item_price.data.to_i }
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@bill.name}"
+      end
+    end
   end
 
   def index
