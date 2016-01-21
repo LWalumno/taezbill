@@ -1,0 +1,10 @@
+<%= simple_form_for @bill do |f| %>
+  <%= f.input :name %>
+  <%= f.input :date %>
+  <%= f.input :number %>
+  <%= f.input :working_days, as: :fake, label: "How many days did you work as a TA ?", placeholder: "e.g. 12", required: true %>
+  <%= f.input :daily_price, as: :fake, label: "What's your daily price (€) ?", placeholder: "e.g. 100", required: true %>
+  <div class="text-right">
+    <%= f.submit 'send >', class: "btn btn-xs btn-success" %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 class BillsController < ApplicationController
   before_action :authenticate_teacher
   before_action :check_teacher_profile, only: [:show]
+  before_action :find_bill
 
   def new
     date = Date.today
@@ -60,6 +61,10 @@ class BillsController < ApplicationController
     else
       redirect_to bills_path, alert: "Sorry, something went wrong :/"
     end
+  end
+
+  def edit
+    @
   end
 
   private
