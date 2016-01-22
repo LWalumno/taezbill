@@ -69,9 +69,23 @@ class BillsController < ApplicationController
 
   def update
     if @bill.update(bill_params)
+      qty = params[:working_days]
+      dp = params[:daily_price]
+      item_field_attributes = {
+        description: "Mission TA journée",
+        quantity: qty,
+        daily_price: dp,
+        price: (qty.to_i * dp.to_i).to_s
+      }
+      item = @bill.items.first
+      @bill.fields.each do |field|
+        item_field = item.item_fields.where(field_id: field.id).first
+        data = item_field_attributes[field.title.to_sym]
+        item_field.update(data: data)
+      end
       redirect_to bill_path(@bill), notice: "Bill updated!"
     else
-      render :edit
+      render :edit, alert: "Try again"
     end
   end
 
