@@ -1,22 +1,50 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 padded-1em">
       <h3>Complete your profile</h3>
-      <%= simple_form_for current_teacher do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :company_name, required: true %>
-        <%= f.input :company_address, required: true %>
-        <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
-        <%= f.input :siret, required: true %>
-        <%= f.input :phone_number %>
-        <%= f.input :lewagon_name, placeholder: "refers to this batch planning, e.g. \"tchret\"" %>
-        <%= f.input :assistant %>
-        <%= f.input :professor %>
-        <div class="text-right">
-          <%= f.submit "GO", class: "btn btn-xs btn-success" %>
-        </div>
-      <% end %>
     </div>
   </div>
+  <%= simple_form_for current_teacher do |f| %>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-3">
+        <%= f.input :first_name %>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0">
+        <%= f.input :last_name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-3">
+        <%= f.input :company_name, required: true %>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0">
+        <%= f.input :phone_number %>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+        <%= f.input :company_address, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-3">
+        <%= f.input :company_status, collection: Teacher::COMPANY_STATUS %>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0">
+        <%= f.input :siret, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-3">
+        <%= f.input :assistant %>
+        <%= f.input :professor %>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0">
+        <%= f.input :lewagon_name, placeholder: "cf. batch planning, e.g. \"tchret\"" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 padded-1em text-center">
+        <%= f.submit "SEND", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
 </div>

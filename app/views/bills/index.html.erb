@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 padded-3em">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 padded-3em">
       <h2>
         My bills
         <%= link_to new_bill_path do %>
@@ -8,7 +8,7 @@
         <% end %>
       </h2>
     </div>
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
       <% @bills.each do |bill| %>
         <div class="row">
           <div class="col-xs-8">
@@ -26,11 +26,11 @@
                   <i class="fa fa-file-pdf-o"></i>
                 <% end %>
               </li>
-<!--               <li>
+              <li>
                 <%= link_to edit_bill_path(bill) do %>
                   <i class="fa fa-pencil"></i>
                 <% end %>
-              </li> -->
+              </li>
               <li>
                 <%= link_to bill_path(bill), method: :delete do %>
                   <i class="fa fa-times"></i>

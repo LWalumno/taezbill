@@ -1,6 +1,7 @@
 class BillsController < ApplicationController
   before_action :authenticate_teacher
   before_action :check_teacher_profile, only: [:show]
+  before_action :find_bill, only: [:show, :edit, :update, :destroy]
 
   def new
     date = Date.today
@@ -37,7 +38,6 @@ class BillsController < ApplicationController
   end
 
   def show
-    @bill = Bill.find(params[:id])
     @customer = @bill.customer
     @items = @bill.items
     item_prices = @bill.item_fields.where(field_id: Field.find_by_title("price").id)
@@ -55,10 +55,37 @@ class BillsController < ApplicationController
   end
 
   def destroy
-    if Bill.find(params[:id]).destroy
+    if @bill.destroy
       redirect_to bills_path, notice: "Bill deleted!"
     else
       redirect_to bills_path, alert: "Sorry, something went wrong :/"
+    end
+  end
+
+  def edit
+    @working_days = @bill.items.first.item_fields.where(field_id: Field.find_by_title("quantity")).first.data
+    @daily_price = @bill.items.first.item_fields.where(field_id: Field.find_by_title("daily_price")).first.data
+  end
+
+  def update
+    if @bill.update(bill_params)
+      qty = params[:working_days]
+      dp = params[:daily_price]
+      item_field_attributes = {
+        description: "Mission TA journée",
+        quantity: qty,
+        daily_price: dp,
+        price: (qty.to_i * dp.to_i).to_s
+      }
+      item = @bill.items.first
+      @bill.fields.each do |field|
+        item_field = item.item_fields.where(field_id: field.id).first
+        data = item_field_attributes[field.title.to_sym]
+        item_field.update(data: data)
+      end
+      redirect_to bill_path(@bill), notice: "Bill updated!"
+    else
+      render :edit, alert: "Try again"
     end
   end
 
@@ -66,6 +93,10 @@ class BillsController < ApplicationController
 
   def bill_params
     params.require(:bill).permit(:name, :number, :date)
+  end
+
+  def find_bill
+    @bill = Bill.find(params[:id])
   end
 
   def check_teacher_profile
