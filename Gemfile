@@ -31,6 +31,7 @@ gem 'omniauth-github'
 gem 'simple_form', '~> 3.2.1'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf'
+gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
