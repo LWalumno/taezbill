@@ -16,6 +16,9 @@
 
 <%= yield %>
 
+<!-- Include Google Maps JS API -->
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAUnYmuEH2btXBsbd1l3ww84bnb6EqPDVk "></script>
 <%= javascript_include_tag 'application' %>
 <%= yield(:after_js) %>
 </body>
