@@ -1,6 +1,6 @@
 module BillsHelper
   def city(address)
-    return splitted_address(address)[1..2].join(" ")
+    return splitted_address(address)[1]
   end
 
   def street(address)
