@@ -28,10 +28,9 @@ gem 'figaro'
 gem 'font-awesome-sass'
 gem 'high_voltage', '~> 2.4.0'
 gem 'omniauth-github'
+gem 'pundit'
 gem 'simple_form', '~> 3.2.1'
 gem 'wicked_pdf', github: 'mileszs/wicked_pdf'
-#gem 'wkhtmltopdf-heroku'
-#gem 'wkhtmltopdf'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
