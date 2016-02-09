@@ -11,6 +11,7 @@ class BillsController < ApplicationController
     name = "Facture missions TA #{month} #{year}"
     number = "#{year}#{date.strftime('%m')}00001"
     @bill = Bill.new(name: name, number: number, date: str_date)
+    authorize @bill
   end
 
   def create
@@ -52,6 +53,7 @@ class BillsController < ApplicationController
 
   def index
     @bills = current_teacher.bills
+    authorize @bills
   end
 
   def destroy

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_after_action :verify_authorized
+
   def create
     auth = request.env["omniauth.auth"]
     teacher = Teacher.find_by_provider_and_uid(auth["provider"], auth["uid"]) || Teacher.create_with_omniauth(auth)
