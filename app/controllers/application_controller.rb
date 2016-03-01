@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_teacher
 
 
-  after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
+  after_action :verify_authorized, except: :index, unless: :sessions_or_pages_controller?
+  after_action :verify_policy_scoped, only: :index, unless: :sessions_or_pages_controller?
 
   def pundit_user
     current_teacher
@@ -30,5 +30,9 @@ class ApplicationController < ActionController::Base
     unless current_teacher
       redirect_to page_path(id: "sign_in")
     end
+  end
+
+  def sessions_or_pages_controller?
+    params[:controller] =~ /^sessions/ || params[:controller] =~ /\/pages/
   end
 end
